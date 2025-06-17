@@ -1,0 +1,20 @@
+# Python files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Reports and temporary cache
+*.csv
+*.json
+!extension/manifest.json
+.passguard/
+.passguard_cache/

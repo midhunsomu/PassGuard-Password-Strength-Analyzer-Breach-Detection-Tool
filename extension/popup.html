@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PassGuard - Password Security Analyzer</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="card">
+    <header class="header">
+      <div class="logo-area">
+        <span class="logo-icon">🛡️</span>
+        <h1 class="logo-title">PassGuard</h1>
+      </div>
+      <p class="logo-subtitle">Password Security Analyzer</p>
+    </header>
+
+    <main class="content">
+      <!-- Input Section -->
+      <div class="input-group">
+        <label for="password-input" class="input-label">Enter Password</label>
+        <div class="input-wrapper">
+          <input type="password" id="password-input" class="password-input" placeholder="Type password here..." autocomplete="off" autofocus />
+          <button id="toggle-visibility" class="toggle-btn" aria-label="Toggle Password Visibility" type="button">
+            <!-- Eye SVG Icon -->
+            <svg id="eye-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+              <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Live Analysis Panel -->
+      <div id="analysis-panel" class="analysis-panel hidden">
+        <!-- Strength Score Indicator -->
+        <div class="score-container">
+          <div class="score-label">Strength Score</div>
+          <div id="score-value" class="score-value">Weak</div>
+        </div>
+
+        <!-- Progress Gauge -->
+        <div class="gauge-container">
+          <div id="gauge-bar" class="gauge-bar"></div>
+        </div>
+
+        <!-- Metrics Grid -->
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <span class="metric-title">Entropy</span>
+            <span id="metric-entropy" class="metric-value">0.00 bits</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-title">Length</span>
+            <span id="metric-length" class="metric-value">0 chars</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-title">Exposures</span>
+            <span id="metric-exposures" class="metric-value">Checking...</span>
+          </div>
+        </div>
+
+        <!-- Weaknesses Panel -->
+        <div id="weakness-section" class="info-section hidden">
+          <h2 class="section-title">Detected Weaknesses</h2>
+          <ul id="weakness-list" class="info-list weakness-list"></ul>
+        </div>
+
+        <!-- Recommendations Panel -->
+        <div id="suggestion-section" class="info-section">
+          <h2 class="section-title">Recommendations</h2>
+          <ul id="suggestion-list" class="info-list suggestion-list"></ul>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <p class="privacy-note">🔒 Fully offline checks. Local hashing with k-Anonymity model.</p>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
